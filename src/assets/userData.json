@@ -1,0 +1,48 @@
+
+  [
+  {
+    "id": 1,
+    "fname": "Sasmita",
+    "mname": "Priyadarshini",
+    "lname": "Das",
+    "dob": "11/3/2021",
+    "email": "priyadarshini@gmail.com",
+    "address" : "Bangalore",
+    "adhar":194736972834,
+    "country": "India",
+    "state": "Karnataka",
+    "phone":9962899780,
+    "password":"Priya123"
+   
+  },
+  {
+    "id": 2,
+    "fname": "Laxmi",
+    "mname": "Priya",
+    "lname": "Das",
+    "dob": "11/3/1993",
+    "email": "priya@gmail.com",
+    "address" : "Bangalore",
+    "adhar" : 987654235676,
+    "country": "India",
+    "state": "Karnataka",
+    "phone":9962899781,
+    "password":"Laxmi123"
+  },
+  {
+    "id": 3,
+    "fname": "Nikita",
+    "mname": "Priya",
+    "lname": "Das",
+    "dob": "11/3/1992",
+    "email": "nikita@gmail.com",
+    "address" : "Bangalore",
+    "adhar" : 987654235678,
+    "country": "India",
+    "state": "Karnataka",
+    "phone":9962899782,
+    "password":"Nikita123"
+  }
+]
+
+

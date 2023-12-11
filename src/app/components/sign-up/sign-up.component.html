@@ -1,0 +1,124 @@
+<div class="Container" (ngSubmit)="onSubmit()">
+  <h1>User Registration Form</h1>
+  
+  <form [formGroup]="registrationForm">
+      <mat-form-field class="full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput class="form-control" id="fname" [(ngModel)]="fname" formControlName="fname" type="text">
+      </mat-form-field>
+  
+      <div *ngIf="registrationForm.get('fname')?.invalid && (registrationForm.get('fname')?.dirty || registrationForm.get('fname')?.touched)" class="inputError">
+        <mat-error *ngIf="registrationForm.get('fname')?.errors?.['required']">
+          First Name is required.
+        </mat-error>
+        <mat-hint *ngIf="registrationForm.get('fname')?.errors?.['maxlength']">
+          Name cannot be more than 30 characters long.
+        </mat-hint>
+        <mat-hint *ngIf="registrationForm.get('fname')?.errors?.['minlength']">
+          Name must be at least 4 characters long.
+        </mat-hint>
+        </div>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" class="form-control" id="password" [(ngModel)]="password" formControlName="password">
+          <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">
+            Password is required.
+          </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field class="full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" class="form-control" id="confirm" formControlName="confirm">
+        <mat-error *ngIf="registrationForm.get('confirm')?.hasError('required')">
+          Confirm Password is required.
+        </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>DOB</mat-label>
+          <input matInput [matDatepicker]="picker" class="form-control" id="dob" [(ngModel)]="dob" formControlName="dob">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="registrationForm.get('dob')?.errors?.['required']">
+            DOB is required.
+          </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Enter your email" [(ngModel)]="email" />
+        <mat-error *ngIf="registrationForm.get('email')?.hasError('required'); else invalidEmail">
+          Email is required.
+        </mat-error>
+        <ng-template #invalidEmail>
+          <mat-error *ngIf="registrationForm.get('email')?.hasError('invalidEmail')">
+            Please enter a valid email address.
+          </mat-error>
+        </ng-template>
+      </mat-form-field>
+  
+      <mat-form-field class="full-width">
+        <mat-label>Aadhar Number</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="000000001234"
+          class="form-control"
+          id="adhar"
+          formControlName="adhar"
+          maxlength="14"
+          (input)="formatAdhar($event)" [(ngModel)]="adhar">
+  
+        <mat-error *ngIf="registrationForm.get('adhar')?.hasError('required')">Aadhar number is required.</mat-error>
+        <mat-error *ngIf="registrationForm.get('adhar')?.hasError('pattern')">Invalid Aadhar number.</mat-error>
+      </mat-form-field>
+      
+     
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Select a country" [matAutocomplete]="auto" [formControl]="myControl">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCountrySelected($event)">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="myControl.hasError('required')">
+          Country is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Select a state" formControlName="selectedState" >
+          <mat-option *ngFor="let state of getStateOptions()" [value]="state">
+            {{ state }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="registrationForm.get('selectedState')?.hasError('required')">
+          State is required.
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="full-width">
+        <mat-label>Phone Number</mat-label>
+        <span matPrefix>+91 &nbsp;</span>
+        <input matInput type="number" class="form-control" id="phone" formControlName="phone">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-error *ngIf="registrationForm.get('phone')?.hasError('required')">This field is required</mat-error>
+        <mat-error *ngIf="registrationForm.get('phone')?.hasError('invalidPhoneNumber')">Invalid phone number</mat-error>
+      </mat-form-field>    
+      
+  
+      <div class="full-width">
+       <mat-label for="fileInput">Select a file</mat-label>
+       <input type="file" id="fileInput" (change)="onFileSelected($event)" />
+       <button mat-button color="primary" (click)="uploadFile()">Upload</button>
+      </div>
+  
+      <div>
+        <button mat-flat-button color="primary" (click)="onSubmit()" (click)="save()"  type="submit">Register</button>
+      </div>
+     
+    </form>
+  </div>
+  

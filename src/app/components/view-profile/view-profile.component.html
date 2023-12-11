@@ -1,0 +1,39 @@
+<div class="container">  
+    
+  <h1> User's Detail </h1>
+    
+  <table class="table table-striped">  
+    <thead>  
+        <tr>  
+          <th>ID</th>  
+          <th>FirstName</th>  
+          <th>MiddleName</th> 
+          <th>LastName</th> 
+          <th>DOB</th> 
+          <th>Email</th> 
+          <th>Adress</th>
+          <th>Adhar</th> 
+          <th>Country</th>  
+          <th>State</th>   
+          <th>phone</th>  
+        </tr>  
+    </thead>  
+
+    <tbody>  
+      <tr *ngFor="let user of users">  
+        <td>{{ user.id }}</td>  
+        <td>{{ user.fname }}</td>  
+        <td>{{ user.mname }}</td>
+        <td>{{ user.lname }}</td> 
+        <td>{{ user.dob }}</td> 
+        <td>{{ user.email }}</td>
+        <td>{{ user.address }}</td>   
+        <td>{{ user.adhar }}</td>  
+        <td>{{ user.country }}</td>  
+        <td>{{ user.state }}</td>  
+        <td>{{ user.phone }}</td>  
+      </tr>  
+    </tbody>  
+  </table>  
+</div>  
+

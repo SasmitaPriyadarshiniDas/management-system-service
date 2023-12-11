@@ -1,0 +1,20 @@
+.form-wrapper{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-wrapper button{
+  padding: 5px 30px;
+}
+
+.mdc-line-ripple::before{
+  border-bottom-width:5px;
+}
+.Container{
+  width: 30%;
+  padding: 0px;
+  text-align: right;
+  background-color:#c4188a ;
+}
+

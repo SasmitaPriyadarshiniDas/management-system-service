@@ -1,0 +1,36 @@
+.Container{
+    width: 50%;
+    padding: 0px;
+    background-color:#c4188a ;
+    text-align: center;
+}
+h1 {
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-align: center;
+    color:brown ;
+
+}
+.full-width {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+   
+}
+.inputError {
+    text-align: left;
+    margin-top: -20px;
+}
+input {
+    background-color: transparent !important;
+}
+.form-control:focus {
+    background-color:aqua;
+    border-color:aquamarine;
+    box-shadow: none;
+}
+.mat-mdc-select {
+    background-color: transparent;
+    border: 0;
+}
+  
